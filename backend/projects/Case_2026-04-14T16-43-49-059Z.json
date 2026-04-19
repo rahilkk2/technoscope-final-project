@@ -1,0 +1,28 @@
+{
+  "case_id": "Case_2026-04-14T16-43-49-059Z",
+  "original": {
+    "verdict": "AUTHENTIC",
+    "confidence": 60,
+    "comments": "Natural sensor pattern noise detected (variance: 117.7) — consistent with optical sensor capture. Laplacian variance of 1604.8 — strong natural grain present. High-frequency spectral content (ratio: 0.96) consistent with photographic lens capture. JPEG DCT block artifacts detected (score: 194.3) — consistent with real camera JPEG compression pipeline. Classifier confidence: 60.0% Real.",
+    "metadata": "No EXIF Found (stripped or absent)",
+    "spectral": "GAN Fingerprint Detected (score: 13.02) — AI Upsampling Artifact"
+  },
+  "altered": {
+    "verdict": "AUTHENTIC",
+    "confidence": 64,
+    "comments": "Localized smoothing and structural inconsistencies in the scene indicate object removal. Edge discontinuities and semantic gaps support manipulation detection.",
+    "metadata": "No EXIF Found (stripped or absent)",
+    "spectral": "Edge discontinuity (D: 75%) and semantic gap detection (G: 80%) indicate content-aware removal with localized smoothing artifacts.",
+    "spectral_scores": {
+      "A_sensor_noise": 53,
+      "B_texture": 62,
+      "C_color": 59,
+      "D_edge": 75,
+      "E_frequency": 67,
+      "F_metadata": 43,
+      "G_semantic": 80
+    },
+    "processingTime": null
+  },
+  "created": "2026-04-14T16:43:49.481Z"
+}

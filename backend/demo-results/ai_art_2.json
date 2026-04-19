@@ -1,0 +1,17 @@
+{
+  "verdict": "AI SYNTHETIC",
+  "confidence": 61,
+  "comments": "This one reads as a digitally generated illustration rather than hand-drawn artwork. The background texture has a surface-level appearance of grain but when you actually measure the noise structure, the spatial correlation between adjacent noise patches is 0.11 — real paper grain or physical media always shows clustering above 0.4. The color channel independence is also off: R/G/B correlation sits at 0.94, which means the colors were essentially computed together rather than arising from separate physical pigment interactions. Across the background field, the texture repetition index came in at 0.07, meaning there are repeating micro-patterns at regular intervals — something that happens when a diffusion model tiles its latent texture rather than generating true randomness. There's no physical media signature anywhere: no scanner noise, no paper fiber, no ink bleed.",
+  "metadata": "No EXIF or embedded metadata of any kind. PNG format with no ICC color profile matching any scanner or camera. No artist tag, no software tag, no creation timestamp. File size and structure consistent with AI image generator export.",
+  "spectral": "27 periodic spikes detected in FFT analysis (score 2.61). Zero sensor noise contribution across all spatial frequency bands. Hue histogram entropy measured at 2.2, indicating a narrower-than-natural color palette consistent with AI art generation. Benford's law compliance on DCT coefficients: 0.61, below the 0.78 threshold expected for natural images.",
+  "spectral_scores": {
+    "A_sensor_noise": 0.83,
+    "B_texture": 0.79,
+    "C_color": 0.86,
+    "D_edge": 0.68,
+    "E_frequency": 0.81,
+    "F_metadata": 0.94,
+    "G_semantic": 0.71
+  },
+  "processingTime": 6234
+}

@@ -1,0 +1,16 @@
+{
+  "verdict": "AUTHENTIC",
+  "confidence": 69,
+  "comments": "Irregular background reconstruction and disrupted edge continuity indicate object removal. Texture repetition and semantic imbalance suggest inpainting artifacts.",
+  "metadata": "No EXIF Found (stripped or absent)",
+  "spectral": "Edge disruption (D: 78%) and semantic imbalance (G: 85%) indicate inpainting-based object removal with texture cloning artifacts.",
+  "spectral_scores": {
+    "A_sensor_noise": 50,
+    "B_texture": 64,
+    "C_color": 57,
+    "D_edge": 78,
+    "E_frequency": 70,
+    "F_metadata": 40,
+    "G_semantic": 85
+  }
+}

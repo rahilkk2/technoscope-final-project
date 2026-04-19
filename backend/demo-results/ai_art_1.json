@@ -1,0 +1,17 @@
+{
+  "verdict": "AI SYNTHETIC",
+  "confidence": 64,
+  "comments": "The sensor noise floor across this image is essentially nonexistent — when we run the Laplacian residual across all three channels, the variance sits at roughly 0.003, which just doesn't happen with real camera hardware. Even a clean studio shot on a Sony A7 will leave measurable photon noise in the shadows. On top of that, the GAN fingerprint sweep turned up 41 periodic spikes in the FFT magnitude — these are the kind of evenly-spaced spectral artifacts that diffusion models leave behind in the high-frequency bands. The neon lighting looks convincing at first glance, but the cross-channel color correlation is 0.96, meaning the RGB channels are moving almost identically — real lighting never does that. The face geometry also shows bilateral symmetry at 0.93, which is well above what you'd expect from a real person. Skin texture plasticity index is 0.87 — basically the whole face renders as one smooth synthetic surface.",
+  "metadata": "No EXIF data present anywhere in the file. No camera make, model, focal length, or GPS coordinates. The image is 1456x816 pixels — a non-standard widescreen ratio strongly associated with Midjourney widescreen prompt output. No lens profile, no ICC color space matching any physical capture device.",
+  "spectral": "GAN fingerprint confirmed with 41 periodic spikes detected in the 2D FFT magnitude spectrum (score 3.74). Radial power spectral density slope measured at -1.09, far outside the -2.2 to -2.9 range we expect from real photography. Wavelet detail energy in the diagonal sub-band came back at 0.11 — heavily suppressed, consistent with a diffusion model smoothing out the fine detail layer.",
+  "spectral_scores": {
+    "A_sensor_noise": 0.88,
+    "B_texture": 0.85,
+    "C_color": 0.91,
+    "D_edge": 0.74,
+    "E_frequency": 0.89,
+    "F_metadata": 0.95,
+    "G_semantic": 0.82
+  },
+  "processingTime": 7841
+}

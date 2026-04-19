@@ -1,0 +1,36 @@
+# ══════════════════════════════════════════════════════════════════════════════
+# TechnoScope — docker-compose
+# Swap model weights without rebuilding:
+#   Place new .pt/.onnx in ./backend/models/ → restart container
+# ══════════════════════════════════════════════════════════════════════════════
+
+version: "3.9"
+
+services:
+  technoscope:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: technoscope-api
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    volumes:
+      # Hot-swap model weights without rebuild
+      - ./backend/models:/app/backend/models
+      # Persist analysis logs across restarts
+      - ./backend/logs.json:/app/backend/logs.json
+      # Persist saved cases / reports
+      - ./backend/projects:/app/backend/projects
+    environment:
+      - NODE_ENV=production
+      # For GPU: uncomment and use nvidia/cuda base image
+      # - NVIDIA_VISIBLE_DEVICES=all
+    # Uncomment for GPU:
+    # deploy:
+    #   resources:
+    #     reservations:
+    #       devices:
+    #         - driver: nvidia
+    #           count: 1
+    #           capabilities: [gpu]

@@ -1,0 +1,16 @@
+{
+  "verdict": "EDITED",
+  "confidence": 67,
+  "comments": "Localized inconsistencies in object integration with surrounding textures and lighting suggest artificial insertion. Edge transitions and semantic alignment indicate post-processing.",
+  "metadata": "No EXIF Found (stripped or absent)",
+  "spectral": "Edge discontinuity (D: 74%) and semantic anomaly (G: 82%) indicate localized object insertion with post-processing artifacts.",
+  "spectral_scores": {
+    "A_sensor_noise": 52,
+    "B_texture": 61,
+    "C_color": 58,
+    "D_edge": 74,
+    "E_frequency": 66,
+    "F_metadata": 45,
+    "G_semantic": 82
+  }
+}

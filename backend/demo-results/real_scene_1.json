@@ -1,0 +1,17 @@
+{
+  "verdict": "AUTHENTIC",
+  "confidence": 59,
+  "comments": "This landscape passed most of our checks. The atmospheric haze gradient across the layered mountain ridges follows Rayleigh scattering physics — the way contrast and saturation drop off with depth is consistent with real atmospheric perspective, and AI generators consistently get this wrong. They either over-apply the effect uniformly or don't apply it gradually enough. Rock surface texture in the foreground has wavelet detail energy of 0.49, which reflects the genuine complexity of real stone photographed at distance. PRNU score came back at 0.51. The tonal response curve has a natural highlight rolloff consistent with film or a mirrorless sensor in a standard picture profile. Confidence is moderate rather than high because the EXIF was stripped — we're missing the hardware and lens confirmation.",
+  "metadata": "No EXIF present — consistent with stock photo platform upload or social media share. Square 1:1 crop. Natural vignetting at image corners and atmospheric depth haze confirm outdoor optical capture. No AI generation metadata or software tags detected.",
+  "spectral": "No GAN fingerprint. 2 spectral spikes (score 0.16). PRNU 0.51. Wavelet detail energy 0.49. Radial PSD slope -2.52. Atmospheric haze gradient physics compliance confirmed. Shot noise Poisson compliance 0.86.",
+  "spectral_scores": {
+    "A_sensor_noise": 0.16,
+    "B_texture": 0.19,
+    "C_color": 0.14,
+    "D_edge": 0.22,
+    "E_frequency": 0.12,
+    "F_metadata": 0.42,
+    "G_semantic": 0.17
+  },
+  "processingTime": 6103
+}

@@ -1,0 +1,17 @@
+{
+  "verdict": "AI SYNTHETIC",
+  "confidence": 58,
+  "comments": "Line art like this is actually one of the trickier cases for the sensor analysis because there's intentionally very little texture to work with. But the background luminance variance is 0.002 — that's an almost perfectly flat white that doesn't happen with scanned paper, which always picks up surface tooth and shadow variation from the scanner lamp. The stroke edges, when measured with the edge thickness variance metric, come back at 0.004, meaning every line in this image is essentially the same width. Hand-drawn linework always has tremor variation above 0.02. There are also four locations in the illustration where the watercolor splash elements repeat an identical micro-texture cluster — a tiling artifact we associate with diffusion model inpainting. The shot noise curve is flat across all brightness levels, which is physically impossible for any captured image.",
+  "metadata": "No EXIF metadata found. Pure PNG with no embedded scanner DPI, no physical media indicators, no creation software tag. White background luminance is uniformly 255 with near-zero variance — not consistent with any physical paper scan.",
+  "spectral": "19 spectral spikes detected in FFT sweep (score 1.88). Shot noise Poisson compliance: 0.04 — essentially zero, meaning the noise structure across brightness regions is completely flat rather than following the natural photon statistics of a real capture. Edge coherence score 0.91 — unnaturally uniform edge directions for a hand-drawn piece.",
+  "spectral_scores": {
+    "A_sensor_noise": 0.81,
+    "B_texture": 0.76,
+    "C_color": 0.69,
+    "D_edge": 0.78,
+    "E_frequency": 0.74,
+    "F_metadata": 0.93,
+    "G_semantic": 0.65
+  },
+  "processingTime": 5119
+}

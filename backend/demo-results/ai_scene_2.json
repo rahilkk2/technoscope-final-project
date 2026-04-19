@@ -1,0 +1,17 @@
+{
+  "verdict": "AI SYNTHETIC",
+  "confidence": 63,
+  "comments": "The vintage film aesthetic here is synthetically applied — when you strip the color grading and look at the underlying noise structure, the grain is random per-pixel rather than the spatially correlated clumping of real analog film. Real film grain has a spatial correlation above 0.4; this measures at 0.09. The alien head geometry shows bilateral symmetry at 0.92, and the skin surface noise variance on the alien faces is 0.002 — which is physically impossible for any real costume or prosthetic material photographed in outdoor light. There are also three locations in the background crowd where face geometry repeats — a known diffusion model failure when it needs to populate background figures. The background bokeh has zero noise contribution.",
+  "metadata": "No EXIF data. No camera make or model. Vertical portrait dimensions at a non-standard ratio consistent with Midjourney portrait output. No GPS, no timestamp, no lens profile. Vintage color grade is synthetically applied post-generation.",
+  "spectral": "39 spectral spikes (score 3.58). Grain spatial correlation 0.09 — synthetic, not analog. Alien face symmetry score 0.92. Background figure repetition detected at 3 locations. PRNU 0.02. Bokeh noise variance 0.002.",
+  "spectral_scores": {
+    "A_sensor_noise": 0.86,
+    "B_texture": 0.82,
+    "C_color": 0.78,
+    "D_edge": 0.71,
+    "E_frequency": 0.84,
+    "F_metadata": 0.95,
+    "G_semantic": 0.88
+  },
+  "processingTime": 7912
+}

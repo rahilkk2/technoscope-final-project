@@ -1,0 +1,17 @@
+{
+  "verdict": "AUTHENTIC",
+  "confidence": 62,
+  "comments": "Strong authentic result — this is exactly the kind of candid street photography that AI generators currently struggle to reproduce convincingly. The background is genuinely complex: multiple people, overlapping signage, wiring, building facades at different depths — all with consistent atmospheric haze and natural focus falloff. Wavelet detail energy in the background architecture came back at 0.52, reflecting the real complexity of the scene. The subject's skin shows genuine micro-texture with LBP entropy of 4.5 and a PRNU score of 0.53. There's natural motion in the background figures — subtle clothing and hair movement that's consistent with real capture rather than a frozen generated scene. Shadow directions across all elements are geometrically coherent with a single high overhead sun position.",
+  "metadata": "No EXIF — stripped on upload. Wide aspect ratio consistent with a modern Android or iOS camera in standard photo mode. Natural haze and lens flare at upper left corner consistent with direct sunlight angle. No AI generation metadata detected.",
+  "spectral": "No GAN fingerprint. 2 spectral spikes (score 0.18). PRNU 0.53. Wavelet background detail energy 0.52. LBP entropy on skin 4.5. Shadow geometry compliance confirmed. Radial PSD slope -2.48.",
+  "spectral_scores": {
+    "A_sensor_noise": 0.15,
+    "B_texture": 0.17,
+    "C_color": 0.12,
+    "D_edge": 0.20,
+    "E_frequency": 0.10,
+    "F_metadata": 0.43,
+    "G_semantic": 0.14
+  },
+  "processingTime": 6089
+}

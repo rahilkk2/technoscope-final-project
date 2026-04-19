@@ -1,0 +1,16 @@
+{
+  "verdict": "AUTHENTIC",
+  "confidence": 64,
+  "comments": "Localized smoothing and structural inconsistencies in the scene indicate object removal. Edge discontinuities and semantic gaps support manipulation detection.",
+  "metadata": "No EXIF Found (stripped or absent)",
+  "spectral": "Edge discontinuity (D: 75%) and semantic gap detection (G: 80%) indicate content-aware removal with localized smoothing artifacts.",
+  "spectral_scores": {
+    "A_sensor_noise": 53,
+    "B_texture": 62,
+    "C_color": 59,
+    "D_edge": 75,
+    "E_frequency": 67,
+    "F_metadata": 43,
+    "G_semantic": 80
+  }
+}

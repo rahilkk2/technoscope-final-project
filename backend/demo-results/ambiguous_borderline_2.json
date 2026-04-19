@@ -1,0 +1,7 @@
+{
+  "verdict": "AI SYNTHETIC",
+  "confidence": 62,
+  "comments": "Vintage beach restaurant scene is a high-quality Midjourney synthesis in the style of 1950s–1960s Kodachrome color photography. The color palette and tonal compression convincingly simulate Kodachrome film stock, but spectral analysis reveals the color cast is applied as a uniform LUT transformation rather than arising from dye-coupler chemistry. The waiter subject's face shows AI idealization — jaw geometry and cheekbone definition exceed the natural variation expected in candid period photography. Background crowd figures are rendered with the characteristic 'blur of plausibility' used by diffusion models to avoid generating coherent faces in non-primary subjects. White umbrella fabric shows synthetically uniform texture without the thread-count variation of real woven canvas.",
+  "spectral": "Color channel analysis shows Kodachrome simulation via post-process LUT rather than genuine photochemical origin — red channel rolloff is too linear. Background depth falloff matches synthetic bokeh rather than real optical perspective.",
+  "metadata": "No vintage scanner metadata; no film stock profile in color management chain; file structure is modern PNG, inconsistent with scanned physical photograph provenance."
+}

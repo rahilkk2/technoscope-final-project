@@ -1,0 +1,17 @@
+{
+  "verdict": "AI SYNTHETIC",
+  "confidence": 65,
+  "comments": "This portrait is one of the cleaner AI face generations we've processed — it's convincing enough that the heuristic alone would have struggled, but the physics don't lie. The PRNU score came back at 0.02, meaning there's essentially no physical sensor fingerprint in this image. Any real camera, even a cheap phone, leaves a PRNU trace above 0.3. The skin plasticity index is 0.88 — nearly 70% of the facial pixels are below the Laplacian smoothness threshold, which means the skin is rendered, not photographed. What really flags it is the iris detail: both eyes show radial symmetry scores of 0.95 and 0.96 respectively. Real human irises are never that symmetrical — there's always asymmetric pigmentation variation. The background bokeh also has zero noise variance (0.001), which is impossible for any real lens rendering out-of-focus regions.",
+  "metadata": "No EXIF data found. No camera make, model, or GPS. Square crop at 1024x1024 pixels — the default output resolution for several major AI image generators. No lens distortion coefficients, no vignetting profile, no chromatic aberration at color boundaries.",
+  "spectral": "38 spectral spikes confirmed in 2D FFT (score 3.44). PRNU cross-correlation: 0.02 — no physical sensor signature. Radial PSD slope -1.11, well outside natural image range. Wavelet diagonal detail energy: 0.09, indicating heavy smoothing in the fine-detail frequency band. DCT block artifact score: 0.02 — no real camera compression history.",
+  "spectral_scores": {
+    "A_sensor_noise": 0.91,
+    "B_texture": 0.88,
+    "C_color": 0.79,
+    "D_edge": 0.72,
+    "E_frequency": 0.87,
+    "F_metadata": 0.96,
+    "G_semantic": 0.84
+  },
+  "processingTime": 8203
+}

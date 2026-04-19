@@ -1,0 +1,17 @@
+{
+  "verdict": "AI SYNTHETIC",
+  "confidence": 54,
+  "comments": "This is a borderline case and the system flags it with moderate confidence. The freckle distribution randomness score of 0.74 is actually within the authentic range — whoever generated this did a decent job of varying the freckle placement. But when we look at the skin in between the freckles, the plasticity smoothness index is 0.69, which tips it over the threshold. Real skin at this focal length and this level of detail would show pore variation, micro-hair, and subsurface scattering irregularity. Here it's just... too clean between the marks. The PRNU score is 0.14, which is below the 0.35 threshold we need to confirm a real sensor. GAN fingerprint score came in at 1.71 — just above the 1.5 detection threshold. Five of seven forensic groups returned uncertain verdicts, so this one is a probable AI with low confidence rather than a definitive call.",
+  "metadata": "No EXIF metadata detected. No camera make, model, or focal length. File dimensions and structure consistent with AI generator output. No lens profile or optical distortion data embedded.",
+  "spectral": "14 spectral spikes in FFT (score 1.71, just above 1.5 threshold). PRNU score 0.14 — below camera confirmation threshold of 0.35. Plasticity smoothness index 0.69. Freckle randomness 0.74 — conflicting authentic signal. Consensus: 5 of 7 groups inconclusive.",
+  "spectral_scores": {
+    "A_sensor_noise": 0.67,
+    "B_texture": 0.71,
+    "C_color": 0.58,
+    "D_edge": 0.49,
+    "E_frequency": 0.63,
+    "F_metadata": 0.88,
+    "G_semantic": 0.55
+  },
+  "processingTime": 7102
+}

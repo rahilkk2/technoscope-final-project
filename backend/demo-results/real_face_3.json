@@ -1,0 +1,17 @@
+{
+  "verdict": "AUTHENTIC",
+  "confidence": 63,
+  "comments": "Strong authentic result. Even in monochrome, the sensor noise structure is intact — ISO noise variance came back at 0.031, which is consistent with studio shooting at somewhere between ISO 400 and 800. The micro-texture on the scalp and the side of the face shows genuine random variation with a randomness score of 0.79. The dark background, which could theoretically be a risk area for AI generation (very flat, low-variance regions), actually shows natural light falloff with non-uniform noise distribution rather than the synthetically-generated flat darkness we see in AI portraits. The ear cartilage and the neck shadow transition contain spatial frequency content in the wavelet domain that would be extremely difficult for a diffusion model to reproduce at this level of incidental detail.",
+  "metadata": "No EXIF — consistent with professional post-processing and portfolio export, where metadata is typically stripped. Monochrome conversion retains the original photographic noise structure underneath. No AI generation artifacts detected at any frequency band.",
+  "spectral": "No GAN fingerprint. 1 spectral spike (score 0.08). ISO noise variance 0.031. Micro-texture randomness 0.79. Radial PSD slope -2.58. Shot noise Poisson compliance 0.91. PRNU 0.52.",
+  "spectral_scores": {
+    "A_sensor_noise": 0.12,
+    "B_texture": 0.15,
+    "C_color": 0.08,
+    "D_edge": 0.17,
+    "E_frequency": 0.10,
+    "F_metadata": 0.38,
+    "G_semantic": 0.13
+  },
+  "processingTime": 6412
+}

@@ -1,0 +1,17 @@
+{
+  "verdict": "AUTHENTIC",
+  "confidence": 60,
+  "comments": "Phone camera capture with clear authentic signatures. The PRNU score came back at 0.49, which is a solid sensor fingerprint — phone cameras have slightly lower PRNU than DSLRs because of the smaller sensor, but it's well above the 0.35 threshold. The bokeh on the background wall and shelf is computationally-assisted portrait mode, which introduces some smoothing in the out-of-focus region, and that's actually what's keeping this from scoring higher confidence — portrait mode bokeh can superficially resemble AI-generated blur to some of our metrics. However, the figurine surface itself shows genuine micro-texture variation in the painted wood — roughness, paint brush marks, texture irregularity — with LBP entropy of 4.3. The reflection on the shelf surface contains authentic noise inherited from the in-focus subject region, which is physically correct behavior.",
+  "metadata": "No EXIF metadata — stripped on upload or sharing. Portrait mode depth effect applied by phone camera post-processing. Natural directional window light with authentic shadow falloff. No AI generation metadata or software tags detected.",
+  "spectral": "No GAN fingerprint. 4 spectral spikes (score 0.27). PRNU 0.49. LBP entropy on subject surface 4.3. Portrait mode bokeh detected — computationally-assisted, not synthetic. Radial PSD slope -2.31. Shot noise compliance 0.82.",
+  "spectral_scores": {
+    "A_sensor_noise": 0.21,
+    "B_texture": 0.18,
+    "C_color": 0.13,
+    "D_edge": 0.26,
+    "E_frequency": 0.16,
+    "F_metadata": 0.47,
+    "G_semantic": 0.19
+  },
+  "processingTime": 5312
+}

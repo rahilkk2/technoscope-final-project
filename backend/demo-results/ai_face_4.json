@@ -1,0 +1,7 @@
+{
+  "verdict": "AI SYNTHETIC",
+  "confidence": 66,
+  "comments": "Monochrome portrait is a highly convincing AI synthesis trained on professional fashion photography aesthetics. Despite the apparent film grain overlay, noise distribution analysis reveals the grain is applied as a post-process texture rather than originating from photochemical silver halide exposure. Skin specularity on the scalp and cheekbone follows a diffuse BRDF model inconsistent with real studio strobe lighting. The earring geometry is rendered with perfect smoothness at the metal surface — genuine jewelry photography shows micro-scratches and surface anisotropy under close inspection.",
+  "spectral": "Simulated grain fails frequency authenticity test: genuine film grain shows non-Gaussian spatial correlation absent here. Background gradient is synthetically uniform with no environmental light bounce variation.",
+  "metadata": "No film scanner signature; no analog-to-digital conversion metadata; PNG chunk data contains no photographic origin markers."
+}

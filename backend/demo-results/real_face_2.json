@@ -1,0 +1,17 @@
+{
+  "verdict": "AUTHENTIC",
+  "confidence": 58,
+  "comments": "A fairly clean authentic result. The bokeh in the background shows the kind of non-uniform optical rendering you only get from a real lens — the out-of-focus flower petals have varying edge sharpness that follows the lens's actual point spread function rather than a mathematically smooth blur. PRNU score came back at 0.54, confirming a real sensor. The freckle distribution across the nose and cheeks has a randomness score of 0.78, consistent with natural pigmentation. Flower petal venation in the in-focus region contains high-frequency wavelet energy of 0.46 — AI generators consistently struggle to produce realistic fine botanical detail at this scale. The reason this isn't scoring higher confidence is the EXIF was stripped, which removes the hardware anchor we'd normally rely on.",
+  "metadata": "No EXIF found — likely stripped during social media or stock photo upload. Natural shallow depth of field, optical bokeh characteristics, and lens-specific light falloff are consistent with a real 85–100mm portrait lens. No AI software tag or generation metadata detected.",
+  "spectral": "No GAN fingerprint. 2 spectral spikes (score 0.13). PRNU 0.54. Green channel noise dominance ratio 1.5 — consistent with real Bayer filter CMOS sensor. Wavelet detail energy 0.46. Edge coherence 0.68 — natural diverse edge orientations present.",
+  "spectral_scores": {
+    "A_sensor_noise": 0.17,
+    "B_texture": 0.21,
+    "C_color": 0.13,
+    "D_edge": 0.19,
+    "E_frequency": 0.11,
+    "F_metadata": 0.44,
+    "G_semantic": 0.18
+  },
+  "processingTime": 5934
+}

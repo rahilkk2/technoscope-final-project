@@ -1,0 +1,17 @@
+{
+  "verdict": "AUTHENTIC",
+  "confidence": 61,
+  "comments": "This one came back clean across most of our forensic groups. The PRNU score is 0.58, which puts it comfortably in the range we expect from a real camera sensor — there's a genuine physical noise fingerprint present across all three color channels. The shot noise curve follows Poisson statistics reasonably well, with dark region noise running about 2.1 times higher than bright regions, which is what you'd expect from real photon statistics. The freckle distribution randomness score is 0.81, which is solidly in the authentic range — the irregular spacing and size variation are consistent with natural skin pigmentation. Skin micro-texture entropy is 4.6, well above the 3.5 threshold that separates real skin from synthetic renders. The main reason confidence isn't higher is that EXIF was stripped from the file — probably a social media upload — so we're missing the hardware confirmation that would push this past 70.",
+  "metadata": "EXIF data absent — consistent with social media platform stripping on upload. Color profile is standard sRGB. Natural lens vignetting visible in image corners. Slight chromatic aberration at the high-contrast hair-to-background boundary, consistent with a real optical system.",
+  "spectral": "No GAN fingerprint detected — only 3 low-amplitude spectral spikes found (score 0.19, well below the 1.5 detection threshold). PRNU cross-correlation 0.58 confirms physical sensor origin. Shot noise Poisson compliance 0.87. Radial PSD slope -2.44, within the natural image range of -2.2 to -2.9.",
+  "spectral_scores": {
+    "A_sensor_noise": 0.14,
+    "B_texture": 0.18,
+    "C_color": 0.11,
+    "D_edge": 0.21,
+    "E_frequency": 0.09,
+    "F_metadata": 0.41,
+    "G_semantic": 0.16
+  },
+  "processingTime": 6871
+}

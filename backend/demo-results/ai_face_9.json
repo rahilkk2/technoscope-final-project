@@ -1,0 +1,17 @@
+{
+  "verdict": "AI SYNTHETIC",
+  "confidence": 60,
+  "comments": "The wrinkle detail here is convincing enough to fool a casual observer, but the underlying physics tell a different story. Wrinkle depth maps show a regularity spacing index of 0.87 — real facial aging produces asymmetric, irregular furrow patterns because skin folds differently based on muscle movement history. These wrinkles are too evenly distributed. The background behind the subject has a gradient variance of 0.002, which means it was generated rather than photographed. PRNU score is 0.03 — no camera sensor trace. We also picked up a pair of characteristic spectral peaks at approximately 7.3Hz and 14.6Hz in the spatial frequency domain — these harmonic peaks are a known Midjourney v6 fingerprint that shows up consistently in their photorealistic portrait outputs.",
+  "metadata": "No EXIF data found. No camera make or model. Image width is 1456px — a non-standard dimension consistent with Midjourney's aspect ratio output format. No GPS, no timestamp, no lens profile embedded in the file.",
+  "spectral": "31 spectral spikes (score 2.84). Characteristic Midjourney harmonic peaks at 7.3Hz and 14.6Hz confirmed. PRNU 0.03. Background gradient variance 0.002. Wrinkle regularity index 0.87. Radial PSD slope -1.22.",
+  "spectral_scores": {
+    "A_sensor_noise": 0.84,
+    "B_texture": 0.81,
+    "C_color": 0.72,
+    "D_edge": 0.69,
+    "E_frequency": 0.86,
+    "F_metadata": 0.94,
+    "G_semantic": 0.77
+  },
+  "processingTime": 7329
+}

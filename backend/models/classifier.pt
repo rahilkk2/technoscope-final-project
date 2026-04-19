@@ -1,0 +1,9 @@
+# classifier.pt
+# This file is a placeholder for the trained PyTorch model weights.
+# Replace this file with a real trained AIDetectorCNN state_dict checkpoint.
+#
+# To train classifier.py's AIDetectorCNN and save weights, run from /analysis:
+#   python train.py --output ../models/classifier.pt
+#
+# The classifier.py script will automatically detect and load this file.
+# If it is absent or invalid, classifier.py falls back to heuristic scoring.

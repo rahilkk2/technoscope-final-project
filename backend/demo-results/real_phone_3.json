@@ -1,0 +1,17 @@
+{
+  "verdict": "AUTHENTIC",
+  "confidence": 64,
+  "comments": "This is a high-confidence authentic result. The motion blur on the yellow vehicle in the foreground is velocity-consistent with a real shutter speed — the blur magnitude, direction, and edge gradient are physically coherent with a vehicle passing at roughly 20–30 km/h during exposure. AI motion blur is a post-process filter and never achieves this physical consistency. The cardboard stack texture has wavelet energy of 0.54 — genuine surface complexity from real corrugated material. The Chinese signage on the shop in the background contains real typographic detail with high-frequency character strokes intact. PRNU score is 0.56. The scene contains over a dozen independently moving elements with geometrically consistent shadows — a level of scene complexity that no current diffusion model can generate coherently.",
+  "metadata": "No EXIF data — stripped on upload. Wide landscape crop consistent with phone camera capture. Natural motion blur from real shutter speed. Optical lens distortion visible at frame edges. No AI generation metadata or software tags found.",
+  "spectral": "No GAN fingerprint. 3 spectral spikes (score 0.22). PRNU 0.56. Motion blur velocity physics confirmed. Wavelet cardboard detail energy 0.54. Scene complexity index 0.81 — well above AI generation capability threshold. Radial PSD slope -2.44.",
+  "spectral_scores": {
+    "A_sensor_noise": 0.13,
+    "B_texture": 0.16,
+    "C_color": 0.11,
+    "D_edge": 0.18,
+    "E_frequency": 0.09,
+    "F_metadata": 0.40,
+    "G_semantic": 0.12
+  },
+  "processingTime": 5877
+}

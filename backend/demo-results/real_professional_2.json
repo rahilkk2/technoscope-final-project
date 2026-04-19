@@ -1,0 +1,17 @@
+{
+  "verdict": "AUTHENTIC",
+  "confidence": 61,
+  "comments": "Professional studio portrait with solid authentic indicators. The pure black background is the most challenging part of this image forensically — very flat, low-variance regions can look similar to AI-generated backgrounds. But the noise in the darkest regions follows natural sensor dark current behavior, with variance consistent with a real sensor at ISO 800–1600. Skin micro-texture on the face shows genuine pore variation and natural aging characteristics — LBP entropy of 4.4. PRNU came back at 0.51. The blazer fabric texture in the mid-tones has a weave pattern with wavelet energy of 0.44 that reflects real textile capture. Hair strand rendering at the temples shows natural variation in strand thickness and spacing, unlike the uniform parallel rendering we see in AI-generated portraits. Confidence is moderate because EXIF is absent.",
+  "metadata": "No EXIF data — consistent with professional studio workflow where metadata is removed before delivery. Monochrome tonal range with natural highlight rolloff on the forehead and cheekbones. No AI generation metadata or software tags detected.",
+  "spectral": "No GAN fingerprint. 2 spectral spikes (score 0.14). PRNU 0.51. LBP entropy 4.4. Blazer wavelet energy 0.44. Dark region noise follows natural dark current curve. Radial PSD slope -2.54.",
+  "spectral_scores": {
+    "A_sensor_noise": 0.18,
+    "B_texture": 0.15,
+    "C_color": 0.09,
+    "D_edge": 0.21,
+    "E_frequency": 0.12,
+    "F_metadata": 0.41,
+    "G_semantic": 0.16
+  },
+  "processingTime": 6228
+}

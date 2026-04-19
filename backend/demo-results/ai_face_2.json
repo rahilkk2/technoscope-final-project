@@ -1,0 +1,7 @@
+{
+  "verdict": "AI SYNTHETIC",
+  "confidence": 68,
+  "comments": "Image is a high-quality AI synthesis designed to mimic natural photography — freckle distribution is algorithmically randomized but lacks the biologically clustered pattern of genuine melanin deposits. Skin pore texture under the cheekbone shows periodic repetition artifacts detectable at 300% zoom, consistent with tiled texture synthesis in diffusion upscaling. Shadow transitions near the jawline are too gradual and lack the micro-shadow variance created by real facial geometry and natural lighting. No chromatic aberration detected at high-contrast edges, which would be present in any real camera lens system.",
+  "spectral": "Spectral noise floor is 18dB below expected ISO photon noise for this apparent exposure level. High-frequency edge response matches AI sharpening rather than optical point spread function.",
+  "metadata": "EXIF fields entirely absent; no GPS, no device ID, no shutter speed or aperture data recoverable."
+}

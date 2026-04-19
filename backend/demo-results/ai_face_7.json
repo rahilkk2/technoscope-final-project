@@ -1,0 +1,17 @@
+{
+  "verdict": "AI SYNTHETIC",
+  "confidence": 62,
+  "comments": "Studio portraits are one of the hardest cases because the clean background and controlled lighting naturally suppress some of the signals we rely on. But several things stand out here. The skin plasticity index is 0.86 — the face reads as one almost entirely smooth surface at the pixel level, with almost no pore-scale variation. Background pixel variance is 0.003, which means the grey backdrop was generated, not photographed — a real studio backdrop always has subtle texture and gradient variation from light falloff. Hair strand rendering at the hairline shows parallel spacing with a regularity index of 0.89, whereas real hair always has random variation in strand separation. PRNU score is 0.03 — no physical sensor present.",
+  "metadata": "No EXIF present. 1280x720 output dimensions — consistent with AI generation targeting widescreen format. No ICC color profile from any known camera or studio scanner. No focal length, aperture, or ISO data anywhere in the file.",
+  "spectral": "33 spectral spikes detected (score 3.01). Background variance 0.003 — synthetically generated backdrop confirmed. Hair regularity index 0.89. PRNU 0.03. Radial PSD slope -1.06. Wavelet detail energy 0.08.",
+  "spectral_scores": {
+    "A_sensor_noise": 0.89,
+    "B_texture": 0.86,
+    "C_color": 0.77,
+    "D_edge": 0.68,
+    "E_frequency": 0.84,
+    "F_metadata": 0.95,
+    "G_semantic": 0.79
+  },
+  "processingTime": 7688
+}

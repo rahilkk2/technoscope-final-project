@@ -1,0 +1,17 @@
+{
+  "verdict": "AI SYNTHETIC",
+  "confidence": 55,
+  "comments": "The vintage aesthetic here is well-executed but the underlying image structure doesn't hold up to forensic scrutiny. The film grain is the main giveaway — it measures at a spatial correlation of 0.08, meaning it's random per-pixel noise rather than real analog film grain which always clusters above 0.4. Real film grain has a physical texture from the silver halide crystal structure; digitally-simulated or AI-generated grain doesn't. The hue histogram entropy is 2.4, reflecting a compressed color palette consistent with AI color grading rather than natural mid-century color film. There are also three faces in the background crowd that share near-identical geometric structure — a diffusion model population artifact. The primary subject's clothing physics and shadow consistency are convincing, which is why confidence is moderate rather than high.",
+  "metadata": "No authentic EXIF data. Vintage aesthetic is synthetically applied — underlying noise structure does not contain genuine analog film characteristics. No scanner ICC profile, no film stock color profile. Aspect ratio and file size consistent with Midjourney vintage photography output.",
+  "spectral": "17 spectral spikes (score 1.79). Grain spatial correlation 0.08 — synthetic. Hue entropy 2.4 — compressed. Background face repetition at 3 instances. PRNU 0.12. Radial PSD slope -1.41.",
+  "spectral_scores": {
+    "A_sensor_noise": 0.71,
+    "B_texture": 0.68,
+    "C_color": 0.74,
+    "D_edge": 0.52,
+    "E_frequency": 0.66,
+    "F_metadata": 0.84,
+    "G_semantic": 0.61
+  },
+  "processingTime": 6677
+}

@@ -1,0 +1,16 @@
+{
+  "verdict": "EDITED",
+  "confidence": 65,
+  "comments": "Color gradient inconsistencies and unnatural transition between sky and foreground suggest sky replacement. Frequency distribution and edge blending indicate compositing.",
+  "metadata": "No EXIF Found (stripped or absent)",
+  "spectral": "Color anomaly (C: 72%) and edge blending artifacts (D: 70%) indicate sky region compositing with frequency drift.",
+  "spectral_scores": {
+    "A_sensor_noise": 55,
+    "B_texture": 60,
+    "C_color": 72,
+    "D_edge": 70,
+    "E_frequency": 68,
+    "F_metadata": 42,
+    "G_semantic": 78
+  }
+}

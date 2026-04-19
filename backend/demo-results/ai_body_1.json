@@ -1,0 +1,34 @@
+{
+  "detection": {
+    "verdict": "AI",
+    "confidence": 63,
+    "comments": "Anatomical inconsistencies and proportion irregularities suggest possible AI generation.",
+    "metadata": {},
+    "spectral": {
+      "A_sensor_noise": 26,
+      "B_texture": 63,
+      "C_color": 57,
+      "D_edge": 65,
+      "E_frequency": 70,
+      "F_metadata": 13,
+      "G_semantic": 51
+    }
+  },
+  "forensic": {
+    "spectral": {
+      "A_sensor_noise": 26,
+      "B_texture": 63,
+      "C_color": 57,
+      "D_edge": 65,
+      "E_frequency": 70,
+      "F_metadata": 13,
+      "G_semantic": 51
+    },
+    "analysis": "Anatomical inconsistency detected in body proportions with moderate texture and edge anomalies."
+  },
+  "metadata_info": {
+    "exif_present": false,
+    "software_hint": "Possible synthetic pipeline",
+    "note": "Lack of camera metadata is consistent with generated images"
+  }
+}

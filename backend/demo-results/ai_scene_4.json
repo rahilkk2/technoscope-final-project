@@ -1,0 +1,17 @@
+{
+  "verdict": "AI SYNTHETIC",
+  "confidence": 66,
+  "comments": "Near-maximum confidence result. The physics in this image are impossible in multiple independent ways, and the forensic signals back that up across every group. The sky region — which should be either completely black in real lunar photography or show sensor noise from the camera — has a noise variance of 0.001, meaning it was generated as a smooth dark blue gradient. Real astrophotography always has sensor noise in the dark regions; you simply cannot avoid it. The moon surface dust particle distribution shows regular spacing inconsistent with natural ballistic ejecta physics. The astronaut suit has a plasticity index of 0.87. Most tellingly, the lighting on the subject is inconsistent — the Earth glow implies a cold blue-white source from the upper right, but the subject shows warm frontal lighting from a separate source, and both are rendered identically in terms of shadow edge softness, which is a known diffusion model failure mode.",
+  "metadata": "No EXIF data. No camera make or model. Vertical portrait output at 1024x1792 — a standard Midjourney portrait ratio. No lens distortion, no vignetting, no sensor noise contribution anywhere in the file.",
+  "spectral": "46 spectral spikes (score 3.99). Sky noise variance 0.001 — physically impossible for real capture. Plasticity index 0.87. Lighting inconsistency index 0.93 — two light sources rendered identically. PRNU 0.00. Radial PSD slope -0.94.",
+  "spectral_scores": {
+    "A_sensor_noise": 0.93,
+    "B_texture": 0.88,
+    "C_color": 0.84,
+    "D_edge": 0.76,
+    "E_frequency": 0.91,
+    "F_metadata": 0.97,
+    "G_semantic": 0.90
+  },
+  "processingTime": 8819
+}

@@ -1,0 +1,7 @@
+{
+  "verdict": "AI SYNTHETIC",
+  "confidence": 60,
+  "comments": "This image represents a borderline case — the synthesis quality is exceptionally high, likely produced by a state-of-the-art model such as Midjourney v6 or DALL-E 3. Freckle distribution across the nose bridge and cheeks appears biologically plausible at casual inspection, but statistical analysis of freckle cluster density reveals a Poisson distribution rather than the fractal clustering of genuine sun-induced melanin. The diagonal light stripe across the face is a synthetic lighting effect computed by a neural renderer — real prismatic light projection through a window would show chromatic fringing absent here. Skin microstructure in the periorbital region shows the characteristic 'painted' smoothness of high-end diffusion synthesis despite convincing macro-level texture.",
+  "spectral": "Marginal spectral indicators: noise floor is 12dB below expected photographic baseline; edge response at the hair-skin boundary shows AI upscaling artifacts at sub-pixel level. Confidence reduced from high to moderate due to exceptional synthesis quality.",
+  "metadata": "No EXIF data recoverable; widescreen crop at non-standard resolution; no lens distortion profile detectable."
+}

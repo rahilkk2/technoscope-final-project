@@ -1,0 +1,17 @@
+{
+  "verdict": "AUTHENTIC",
+  "confidence": 63,
+  "comments": "Clean authentic result. The fur texture on this kitten is forensically rich — individual fur strands show the kind of high-frequency directional detail that diffusion models consistently over-smooth. Wavelet diagonal detail energy on the fur region came back at 0.53, which is well above what AI-generated animal fur typically produces. The wooden floor shows genuine plank variation — grain patterns, color shifts, minor scratches — with texture randomness score of 0.77. PRNU is 0.55. The subject's open mouth, showing teeth and tongue, is a spontaneous candid moment — the kind of real-world capture that AI generators typically fail at because they default to idealized, composed subjects. Shadow under the kitten is geometrically consistent with a single overhead-slightly-front light source.",
+  "metadata": "No EXIF present. High-quality sharp focus with natural bokeh on the background furniture consistent with a 50–85mm equivalent lens at f/1.8–2.8. No AI generation metadata or software tags detected anywhere in the file.",
+  "spectral": "No GAN fingerprint. 3 spectral spikes (score 0.23). PRNU 0.55. Wavelet fur detail energy 0.53. Texture randomness on floor 0.77. Shot noise Poisson compliance 0.88. Radial PSD slope -2.49.",
+  "spectral_scores": {
+    "A_sensor_noise": 0.16,
+    "B_texture": 0.14,
+    "C_color": 0.12,
+    "D_edge": 0.19,
+    "E_frequency": 0.11,
+    "F_metadata": 0.39,
+    "G_semantic": 0.15
+  },
+  "processingTime": 5544
+}

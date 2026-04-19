@@ -1,0 +1,17 @@
+{
+  "verdict": "AI SYNTHETIC",
+  "confidence": 63,
+  "comments": "Extreme close-ups are forensically interesting because they expose micro-level artifacts that disappear at normal viewing distance. Here, the skin between the eyes shows a repeating micro-pattern cluster at roughly 1 per 14 pixels — a spatial frequency that we associate with Stable Diffusion's attention mechanism tiling the latent texture across the face. The iris texture on both eyes shows radial variance of 0.003 — real human irises have radial variance above 0.08 because of the natural asymmetric distribution of pigmentation. The specular highlight on the nose bridge has zero noise contribution despite being the brightest region in the image. Real specular highlights always clip sensor noise — there's always something there. Six of seven forensic groups came back flagging synthetic origin.",
+  "metadata": "No EXIF data. No camera make or model. Perfect 1:1 square crop at 1024x1024 — standard AI output. No chromatic aberration at any of the high-contrast skin-to-shadow boundaries in the image.",
+  "spectral": "37 spectral spikes (score 3.41). Iris radial variance 0.003 — far below natural minimum. Skin tiling frequency 1/14px detected. Plasticity index 0.91. Specular highlight noise: 0.000 — physically impossible for real sensor. PRNU 0.01.",
+  "spectral_scores": {
+    "A_sensor_noise": 0.92,
+    "B_texture": 0.89,
+    "C_color": 0.75,
+    "D_edge": 0.71,
+    "E_frequency": 0.88,
+    "F_metadata": 0.96,
+    "G_semantic": 0.86
+  },
+  "processingTime": 8441
+}

@@ -1,0 +1,17 @@
+{
+  "verdict": "AI SYNTHETIC",
+  "confidence": 52,
+  "comments": "This is genuinely one of the harder cases we've seen — five of seven forensic groups returned uncertain or conflicting results. The freckle distribution scores 0.77 for randomness, which is within the authentic range, and there are color channel noise patterns that partially resemble a Bayer filter signature. But the PRNU score is only 0.17, which falls short of the 0.35 threshold we need to confirm a real sensor. The GAN fingerprint score is 1.62 — just above the 1.5 detection threshold. Plasticity index is 0.66, slightly above the synthetic threshold. The overall picture is of a very high-quality diffusion model output that has successfully mimicked several authentic characteristics. We'd classify this as probable AI with low confidence, and we'd flag it for human review rather than treating it as definitive.",
+  "metadata": "No EXIF data present. No camera make, model, or GPS. Ambiguous file characteristics — could represent either a real photograph with stripped metadata or a next-generation AI output. Manual review recommended for high-stakes use cases.",
+  "spectral": "Weak GAN fingerprint — 11 spectral spikes (score 1.62, just above 1.5 threshold). PRNU 0.17 — below camera confirmation minimum. Plasticity index 0.66. Freckle randomness 0.77 — authentic-range conflicting signal. 5 of 7 forensic groups inconclusive.",
+  "spectral_scores": {
+    "A_sensor_noise": 0.54,
+    "B_texture": 0.61,
+    "C_color": 0.44,
+    "D_edge": 0.38,
+    "E_frequency": 0.57,
+    "F_metadata": 0.79,
+    "G_semantic": 0.48
+  },
+  "processingTime": 8102
+}

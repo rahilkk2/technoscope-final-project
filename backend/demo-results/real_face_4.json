@@ -1,0 +1,17 @@
+{
+  "verdict": "AUTHENTIC",
+  "confidence": 66,
+  "comments": "This is one of the more definitive authentic results in our test set, specifically because of the film grain. The grain structure here shows spatial correlation of 0.71 between adjacent grain clusters — real film emulsion grain clumps together in a way that digital noise never does. Per-pixel digital noise is random and uncorrelated; analog grain has a physical texture to it. ISO noise variance is 0.084, which is high and consistent with real film photography or a very high ISO digital capture. The red channel speckle artifacts in the border region are a dead giveaway — those are physical artifacts from the film stock and the scanning process, not something that can be synthetically reproduced. No AI generator we've seen produces border artifacts like this; it would require specifically training for them.",
+  "metadata": "No digital EXIF — image originated from analog film and was subsequently scanned. Physical film border artifacts, color cast, and grain clumping all confirm non-digital capture origin. No AI software tags or generation metadata found anywhere in the file structure.",
+  "spectral": "Zero GAN fingerprint spikes detected (score 0.02). Film grain spatial correlation 0.71 — confirms analog origin. ISO noise variance 0.084. Radial PSD slope -2.77. Shot noise Poisson compliance 0.93. High-frequency noise entropy 3.7 — natural film grain signature.",
+  "spectral_scores": {
+    "A_sensor_noise": 0.09,
+    "B_texture": 0.12,
+    "C_color": 0.16,
+    "D_edge": 0.14,
+    "E_frequency": 0.08,
+    "F_metadata": 0.36,
+    "G_semantic": 0.11
+  },
+  "processingTime": 5788
+}

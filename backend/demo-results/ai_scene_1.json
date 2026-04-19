@@ -1,0 +1,7 @@
+{
+  "verdict": "AI SYNTHETIC",
+  "confidence": 63,
+  "comments": "Mountain landscape is a highly convincing AI synthesis mimicking analog film photography — atmospheric haze layering and tonal compression are characteristic of Stable Diffusion landscape training data. Despite convincing film grain simulation, spatial frequency analysis of the sky gradient reveals an entropy signature 2.3 standard deviations below genuine photographic sky capture at equivalent ISO. Vegetation detail in the foreground mid-ground transition zone shows diffusion blending where botanical specificity degrades, a known limitation of landscape generation models. Rock face geometry in the lower left shows surface normal inconsistency with the apparent sun angle.",
+  "spectral": "Sky region spectral analysis shows absence of Rayleigh scattering frequency signature present in genuine outdoor photography. Film grain overlay passes casual inspection but fails spatial autocorrelation test for authentic photochemical noise.",
+  "metadata": "Square format at 1024px with no EXIF; no GPS coordinates; no camera body or lens signature; film stock profile absent despite apparent analog aesthetic."
+}

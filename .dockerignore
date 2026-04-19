@@ -1,0 +1,36 @@
+# Version control
+.git
+.gitignore
+
+# Node
+node_modules
+backend/node_modules
+npm-debug.log*
+
+# Python caches
+__pycache__
+*.pyc
+*.pyo
+.pytest_cache
+
+# Uploads & runtime artifacts
+backend/uploads/*
+backend/projects/*
+backend/logs.json
+backend/demo-results
+
+# IDE / OS
+.vscode
+.idea
+*.swp
+.DS_Store
+Thumbs.db
+
+# Build artifacts
+*.tgz
+dist/
+build/
+
+# Docs & reports (not needed in image)
+*.pdf
+*.md

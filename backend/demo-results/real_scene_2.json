@@ -1,0 +1,17 @@
+{
+  "verdict": "AUTHENTIC",
+  "confidence": 57,
+  "comments": "Street scene with several strong authenticity markers. The motion blur on the pedestrian's hair shows velocity-consistent smear — the direction and magnitude of the blur is physically coherent with someone walking at normal pace. AI-generated motion blur is typically applied as a uniform radial or directional filter and doesn't follow the actual physics of moving subjects captured at a specific shutter speed. The license plate area on the Lexus contains genuine high-frequency sensor noise consistent with ISO 200–400 capture. Building facade textures in the background have wavelet energy of 0.46, reflecting the complexity of real urban architecture. Shadow directions across all subjects — both pedestrians and vehicles — are geometrically consistent with a single real sun position. Confidence is moderate because of the stripped EXIF.",
+  "metadata": "No EXIF present — typical for street photography distributed through social media or stock platforms. Natural motion blur, consistent shadow geometry from a single light source, and real sensor noise profile all support authentic origin. Square crop consistent with social media upload.",
+  "spectral": "No GAN fingerprint. 3 spectral spikes (score 0.21). PRNU 0.47. Motion blur velocity physics compliance confirmed. Wavelet detail energy 0.46. Shadow geometry consistency confirmed across all subjects. Radial PSD slope -2.36.",
+  "spectral_scores": {
+    "A_sensor_noise": 0.19,
+    "B_texture": 0.22,
+    "C_color": 0.16,
+    "D_edge": 0.24,
+    "E_frequency": 0.13,
+    "F_metadata": 0.44,
+    "G_semantic": 0.20
+  },
+  "processingTime": 5641
+}

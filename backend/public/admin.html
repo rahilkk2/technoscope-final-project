@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TECHNO SCOPE — Admin Dashboard</title>
+    <meta name="description" content="Admin dashboard for TECHNO SCOPE forensic API platform">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        /* ── Reset & Base ──────────────────────────────────────────────────── */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        :root {
+            --bg-primary:   #06060c;
+            --bg-card:      #0d0d18;
+            --bg-surface:   #13132a;
+            --bg-hover:     #1a1a3a;
+            --border:       #1e1e45;
+            --border-glow:  #2a2a60;
+            --text-primary: #e8e8f0;
+            --text-muted:   #8888aa;
+            --text-dim:     #5555775;
+            --accent:       #00d4ff;
+            --accent-dim:   #00a3cc;
+            --green:        #00e676;
+            --red:          #ff5252;
+            --orange:       #ffab40;
+            --purple:       #bb86fc;
+            --font-sans:    'Inter', -apple-system, sans-serif;
+            --font-mono:    'JetBrains Mono', 'Fira Code', monospace;
+        }
+        html { font-size: 14px; }
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            line-height: 1.5;
+        }
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        /* ── Login Gate ────────────────────────────────────────────────────── */
+        #login-gate {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: radial-gradient(ellipse at 50% 30%, #0a0a2e 0%, var(--bg-primary) 70%);
+        }
+        .login-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 48px 40px;
+            width: 400px;
+            max-width: 90vw;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+        }
+        .login-card h1 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 6px;
+        }
+        .login-card .brand { color: var(--accent); }
+        .login-card p { color: var(--text-muted); margin-bottom: 28px; font-size: 0.92rem; }
+        .login-card input {
+            width: 100%;
+            padding: 12px 16px;
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            color: var(--text-primary);
+            font-family: var(--font-mono);
+            font-size: 0.95rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        .login-card input:focus { border-color: var(--accent); }
+        .login-card input::placeholder { color: var(--text-muted); }
+        .login-btn {
+            margin-top: 18px;
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-dim));
+            border: none;
+            border-radius: 10px;
+            color: #000;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: opacity 0.2s, transform 0.15s;
+        }
+        .login-btn:hover { opacity: 0.9; transform: translateY(-1px); }
+        .login-error {
+            color: var(--red);
+            font-size: 0.85rem;
+            margin-top: 12px;
+            min-height: 20px;
+        }
+
+        /* ── Dashboard ─────────────────────────────────────────────────────── */
+        #dashboard { display: none; }
+        .dash-header {
+            padding: 20px 32px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--border);
+            background: var(--bg-card);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .dash-logo {
+            font-size: 1.15rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+        .dash-logo span { color: var(--accent); }
+        .dash-actions { display: flex; align-items: center; gap: 14px; }
+        .refresh-btn, .logout-btn {
+            padding: 8px 16px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            background: var(--bg-surface);
+            color: var(--text-primary);
+            font-size: 0.82rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .refresh-btn:hover { border-color: var(--accent); color: var(--accent); }
+        .logout-btn:hover { border-color: var(--red); color: var(--red); }
+
+        /* ── Stats Row ─────────────────────────────────────────────────────── */
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            padding: 24px 32px;
+        }
+        .stat-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px 22px;
+            transition: border-color 0.2s;
+        }
+        .stat-card:hover { border-color: var(--border-glow); }
+        .stat-label {
+            font-size: 0.78rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 6px;
+        }
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            font-variant-numeric: tabular-nums;
+        }
+        .stat-accent  { color: var(--accent); }
+        .stat-green   { color: var(--green); }
+        .stat-red     { color: var(--red); }
+        .stat-orange  { color: var(--orange); }
+        .stat-purple  { color: var(--purple); }
+
+        /* ── Controls Bar ──────────────────────────────────────────────────── */
+        .controls-bar {
+            padding: 0 32px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .controls-bar input, .controls-bar select {
+            padding: 8px 14px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-size: 0.85rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        .controls-bar input:focus, .controls-bar select:focus { border-color: var(--accent); }
+        .controls-bar input { flex: 1; min-width: 200px; max-width: 360px; }
+        .controls-bar select { min-width: 140px; }
+
+        /* ── Logs Table ────────────────────────────────────────────────────── */
+        .table-wrap {
+            padding: 0 32px 60px;
+            overflow-x: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.88rem;
+        }
+        thead th {
+            text-align: left;
+            padding: 12px 16px;
+            font-weight: 600;
+            font-size: 0.76rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            background: var(--bg-card);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 63px;
+            z-index: 50;
+        }
+        tbody tr {
+            border-bottom: 1px solid var(--border);
+            transition: background 0.15s;
+        }
+        tbody tr:hover { background: var(--bg-hover); }
+        td { padding: 12px 16px; vertical-align: middle; }
+        td.time { color: var(--text-muted); font-family: var(--font-mono); font-size: 0.82rem; white-space: nowrap; }
+        td.image-ref {
+            max-width: 240px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            font-family: var(--font-mono);
+            font-size: 0.82rem;
+            color: var(--text-muted);
+        }
+
+        /* ── Verdict Badges ────────────────────────────────────────────────── */
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.78rem;
+            letter-spacing: 0.03em;
+        }
+        .badge-ai         { background: rgba(255,82,82,0.15); color: var(--red); border: 1px solid rgba(255,82,82,0.3); }
+        .badge-real       { background: rgba(0,230,118,0.12); color: var(--green); border: 1px solid rgba(0,230,118,0.3); }
+        .badge-screenshot { background: rgba(255,171,64,0.12); color: var(--orange); border: 1px solid rgba(255,171,64,0.3); }
+        .badge-unknown    { background: rgba(136,136,170,0.12); color: var(--text-muted); border: 1px solid rgba(136,136,170,0.3); }
+
+        /* ── Confidence Bar ────────────────────────────────────────────────── */
+        .conf-bar-wrap { display: flex; align-items: center; gap: 8px; }
+        .conf-bar {
+            flex: 1;
+            height: 6px;
+            background: var(--bg-surface);
+            border-radius: 3px;
+            overflow: hidden;
+            min-width: 60px;
+            max-width: 100px;
+        }
+        .conf-bar-fill { height: 100%; border-radius: 3px; transition: width 0.4s ease; }
+        .conf-value { font-family: var(--font-mono); font-size: 0.82rem; min-width: 36px; }
+
+        /* ── Detail Button ─────────────────────────────────────────────────── */
+        .detail-btn {
+            padding: 5px 14px;
+            font-size: 0.78rem;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            background: var(--bg-surface);
+            color: var(--accent);
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        .detail-btn:hover { border-color: var(--accent); background: rgba(0,212,255,0.06); }
+
+        /* ── Modal Overlay ────────────────────────────────────────────────── */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.75);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .modal-overlay.active { display: flex; }
+        .modal {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            width: 900px;
+            max-width: 96vw;
+            max-height: 85vh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.7);
+            animation: modal-in 0.25s ease-out;
+        }
+        @keyframes modal-in { from { opacity: 0; transform: translateY(20px) scale(0.97); } to { opacity: 1; transform: none; } }
+        .modal-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 24px;
+            border-bottom: 1px solid var(--border);
+        }
+        .modal-header h2 { font-size: 1.1rem; font-weight: 600; }
+        .modal-close {
+            width: 32px; height: 32px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            background: var(--bg-surface);
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+        .modal-close:hover { border-color: var(--red); color: var(--red); }
+        .modal-body {
+            padding: 24px;
+            overflow-y: auto;
+            flex: 1;
+        }
+
+        /* ── Evidence Groups ───────────────────────────────────────────────── */
+        .evidence-groups {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 14px;
+        }
+        .ev-group {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .ev-group-header {
+            padding: 12px 16px;
+            font-weight: 600;
+            font-size: 0.82rem;
+            letter-spacing: 0.03em;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .ev-group-header .dot {
+            width: 8px; height: 8px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+        .dot-a { background: #ff6b8a; }
+        .dot-b { background: #ffab40; }
+        .dot-c { background: #ffd740; }
+        .dot-d { background: #69f0ae; }
+        .dot-e { background: #40c4ff; }
+        .dot-f { background: #b388ff; }
+        .dot-g { background: #ff80ab; }
+        .dot-adv { background: var(--accent); }
+        .ev-items { padding: 10px 16px; }
+        .ev-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 4px 0;
+            font-size: 0.82rem;
+            border-bottom: 1px solid rgba(30,30,69,0.5);
+        }
+        .ev-item:last-child { border-bottom: none; }
+        .ev-key { color: var(--text-muted); font-family: var(--font-mono); font-size: 0.78rem; }
+        .ev-val { color: var(--text-primary); font-family: var(--font-mono); font-size: 0.78rem; font-weight: 500; }
+
+        /* ── No Data ───────────────────────────────────────────────────────── */
+        .no-data {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--text-muted);
+        }
+        .no-data .icon { font-size: 3rem; margin-bottom: 12px; }
+        .no-data p { font-size: 0.95rem; }
+
+        /* ── Spinner ───────────────────────────────────────────────────────── */
+        .loading-spinner {
+            display: inline-block;
+            width: 18px; height: 18px;
+            border: 2px solid var(--border);
+            border-top-color: var(--accent);
+            border-radius: 50%;
+            animation: spin 0.7s linear infinite;
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        /* ── Responsive ────────────────────────────────────────────────────── */
+        @media (max-width: 768px) {
+            .stats-row { grid-template-columns: repeat(2, 1fr); padding: 16px; }
+            .table-wrap { padding: 0 12px 40px; }
+            .controls-bar { padding: 0 12px; }
+            .dash-header { padding: 14px 16px; }
+            td, th { padding: 10px 8px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════════════════════
+     LOGIN GATE
+     ═══════════════════════════════════════════════════════════════════════ -->
+<div id="login-gate">
+    <div class="login-card">
+        <h1><span class="brand">TECHNO SCOPE</span></h1>
+        <p>Admin Dashboard · Enter password to continue</p>
+        <input type="password" id="login-password" placeholder="Dashboard password" autofocus>
+        <button class="login-btn" id="login-btn">Unlock Dashboard</button>
+        <div class="login-error" id="login-error"></div>
+    </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════════════════
+     DASHBOARD
+     ═══════════════════════════════════════════════════════════════════════ -->
+<div id="dashboard">
+
+    <!-- Header -->
+    <header class="dash-header">
+        <div class="dash-logo"><span>TECHNO SCOPE</span> · Admin</div>
+        <div class="dash-actions">
+            <button class="refresh-btn" id="refresh-btn">
+                <span id="refresh-icon">↻</span> Refresh
+            </button>
+            <button class="logout-btn" id="logout-btn">Logout</button>
+        </div>
+    </header>
+
+    <!-- Stats -->
+    <div class="stats-row" id="stats-row">
+        <div class="stat-card">
+            <div class="stat-label">Total Analyses</div>
+            <div class="stat-value stat-accent" id="stat-total">—</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-label">AI Detected</div>
+            <div class="stat-value stat-red" id="stat-ai">—</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-label">Real / Authentic</div>
+            <div class="stat-value stat-green" id="stat-real">—</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-label">Screenshots</div>
+            <div class="stat-value stat-orange" id="stat-ss">—</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-label">Avg Confidence</div>
+            <div class="stat-value stat-purple" id="stat-avg">—</div>
+        </div>
+    </div>
+
+    <!-- Controls -->
+    <div class="controls-bar">
+        <input type="text" id="search-input" placeholder="Search by image ref, verdict…">
+        <select id="filter-verdict">
+            <option value="">All Verdicts</option>
+            <option value="AI">AI</option>
+            <option value="Real">Real</option>
+            <option value="Screenshot">Screenshot</option>
+        </select>
+    </div>
+
+    <!-- Table -->
+    <div class="table-wrap">
+        <table>
+            <thead>
+                <tr>
+                    <th>Time</th>
+                    <th>Image</th>
+                    <th>Verdict</th>
+                    <th>Confidence</th>
+                    <th>Details</th>
+                </tr>
+            </thead>
+            <tbody id="log-tbody">
+                <tr>
+                    <td colspan="5" class="no-data">
+                        <div class="icon">📡</div>
+                        <p>Loading analysis logs…</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════════════════
+     DETAIL MODAL
+     ═══════════════════════════════════════════════════════════════════════ -->
+<div class="modal-overlay" id="modal-overlay">
+    <div class="modal">
+        <div class="modal-header">
+            <h2 id="modal-title">Analysis Details</h2>
+            <button class="modal-close" id="modal-close">✕</button>
+        </div>
+        <div class="modal-body" id="modal-body"></div>
+    </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════════════════════
+     JAVASCRIPT
+     ═══════════════════════════════════════════════════════════════════════ -->
+<script>
+(function() {
+    'use strict';
+
+    // NOTE FOR PRODUCTION: This password should be validated server-side.
+    // Set ADMIN_PASS in your .env file for production deployments.
+    // This client-side check is a demo placeholder only.
+    const ADMIN_PASSWORD = 'admin123';
+    let allLogs = [];
+
+    // ── Elements ─────────────────────────────────────────────────────────
+    const loginGate   = document.getElementById('login-gate');
+    const dashboard   = document.getElementById('dashboard');
+    const pwdInput    = document.getElementById('login-password');
+    const loginBtn    = document.getElementById('login-btn');
+    const loginError  = document.getElementById('login-error');
+    const logTbody    = document.getElementById('log-tbody');
+    const searchInput = document.getElementById('search-input');
+    const filterSel   = document.getElementById('filter-verdict');
+    const refreshBtn  = document.getElementById('refresh-btn');
+    const logoutBtn   = document.getElementById('logout-btn');
+    const modalOvl    = document.getElementById('modal-overlay');
+    const modalBody   = document.getElementById('modal-body');
+    const modalTitle  = document.getElementById('modal-title');
+    const modalClose  = document.getElementById('modal-close');
+
+    // ── Login ────────────────────────────────────────────────────────────
+    function tryLogin() {
+        const pwd = pwdInput.value.trim();
+        if (pwd === ADMIN_PASSWORD) {
+            loginGate.style.display = 'none';
+            dashboard.style.display = 'block';
+            sessionStorage.setItem('ts_admin', '1');
+            loadLogs();
+        } else {
+            loginError.textContent = 'Incorrect password';
+            pwdInput.value = '';
+            pwdInput.focus();
+        }
+    }
+
+    loginBtn.addEventListener('click', tryLogin);
+    pwdInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') tryLogin(); });
+    logoutBtn.addEventListener('click', () => {
+        sessionStorage.removeItem('ts_admin');
+        dashboard.style.display = 'none';
+        loginGate.style.display = 'flex';
+        pwdInput.value = '';
+    });
+
+    // Auto-login if session exists
+    if (sessionStorage.getItem('ts_admin')) {
+        loginGate.style.display = 'none';
+        dashboard.style.display = 'block';
+        loadLogs();
+    }
+
+    // ── Load Logs ────────────────────────────────────────────────────────
+    async function loadLogs() {
+        refreshBtn.innerHTML = '<span class="loading-spinner"></span> Loading…';
+        try {
+            const resp = await fetch('/admin/logs');
+            allLogs = await resp.json();
+        } catch (e) {
+            allLogs = [];
+            console.error('Failed to load logs:', e);
+        }
+        refreshBtn.innerHTML = '↻ Refresh';
+        updateStats();
+        renderTable();
+    }
+
+    refreshBtn.addEventListener('click', loadLogs);
+    searchInput.addEventListener('input', renderTable);
+    filterSel.addEventListener('change', renderTable);
+
+    // ── Stats ────────────────────────────────────────────────────────────
+    function updateStats() {
+        const total = allLogs.length;
+        const ai   = allLogs.filter(l => mapVerdict(l.verdict) === 'AI').length;
+        const real = allLogs.filter(l => mapVerdict(l.verdict) === 'Real').length;
+        const ss   = allLogs.filter(l => mapVerdict(l.verdict) === 'Screenshot').length;
+        const avg  = total > 0 ? Math.round(allLogs.reduce((s, l) => s + (l.confidence || 0), 0) / total) : 0;
+
+        document.getElementById('stat-total').textContent = total;
+        document.getElementById('stat-ai').textContent    = ai;
+        document.getElementById('stat-real').textContent  = real;
+        document.getElementById('stat-ss').textContent    = ss;
+        document.getElementById('stat-avg').textContent   = avg + '%';
+    }
+
+    // ── Verdict Mapping ──────────────────────────────────────────────────
+    function mapVerdict(v) {
+        if (!v) return 'Unknown';
+        const up = v.toUpperCase();
+        if (up.includes('AI') || up.includes('SYNTHETIC')) return 'AI';
+        if (up.includes('AUTHENTIC') || up.includes('REAL')) return 'Real';
+        if (up.includes('SCREENSHOT')) return 'Screenshot';
+        return v;
+    }
+
+    function verdictBadge(v) {
+        const mapped = mapVerdict(v);
+        const cls = mapped === 'AI' ? 'badge-ai'
+                  : mapped === 'Real' ? 'badge-real'
+                  : mapped === 'Screenshot' ? 'badge-screenshot'
+                  : 'badge-unknown';
+        return `<span class="badge ${cls}">${mapped.toUpperCase()}</span>`;
+    }
+
+    // ── Confidence bar color ─────────────────────────────────────────────
+    function confColor(conf) {
+        if (conf >= 75) return 'var(--green)';
+        if (conf >= 50) return 'var(--orange)';
+        return 'var(--red)';
+    }
+
+    // ── Render Table ─────────────────────────────────────────────────────
+    function renderTable() {
+        const search = searchInput.value.trim().toLowerCase();
+        const filter = filterSel.value;
+
+        let filtered = allLogs;
+        if (filter) {
+            filtered = filtered.filter(l => mapVerdict(l.verdict) === filter);
+        }
+        if (search) {
+            filtered = filtered.filter(l =>
+                (l.image_ref || '').toLowerCase().includes(search) ||
+                mapVerdict(l.verdict).toLowerCase().includes(search) ||
+                (l.comments || '').toLowerCase().includes(search)
+            );
+        }
+
+        if (filtered.length === 0) {
+            logTbody.innerHTML = `<tr><td colspan="5" class="no-data">
+                <div class="icon">📭</div>
+                <p>No analysis records found</p>
+            </td></tr>`;
+            return;
+        }
+
+        logTbody.innerHTML = filtered.map((log, idx) => {
+            const ts   = log.timestamp ? new Date(log.timestamp).toLocaleString() : '—';
+            const ref  = log.image_ref || '—';
+            const conf = log.confidence || 0;
+
+            return `<tr>
+                <td class="time">${escHtml(ts)}</td>
+                <td class="image-ref" title="${escHtml(ref)}">${escHtml(ref)}</td>
+                <td>${verdictBadge(log.verdict)}</td>
+                <td>
+                    <div class="conf-bar-wrap">
+                        <div class="conf-bar">
+                            <div class="conf-bar-fill" style="width:${conf}%;background:${confColor(conf)}"></div>
+                        </div>
+                        <span class="conf-value">${conf}%</span>
+                    </div>
+                </td>
+                <td><button class="detail-btn" data-idx="${idx}">View Details</button></td>
+            </tr>`;
+        }).join('');
+
+        // Bind detail buttons
+        logTbody.querySelectorAll('.detail-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const i = parseInt(btn.dataset.idx);
+                showDetail(filtered[i]);
+            });
+        });
+    }
+
+    // ── Escape HTML ──────────────────────────────────────────────────────
+    function escHtml(s) {
+        const d = document.createElement('div');
+        d.textContent = s;
+        return d.innerHTML;
+    }
+
+    // ── Detail Modal ─────────────────────────────────────────────────────
+    function showDetail(log) {
+        const mapped = mapVerdict(log.verdict);
+        modalTitle.innerHTML = `${verdictBadge(log.verdict)} &nbsp; ${log.confidence || 0}% Confidence`;
+
+        const EV_GROUPS = {
+            sensor_noise:  { label: 'A — Sensor & Noise',    dot: 'dot-a' },
+            texture:       { label: 'B — Texture',           dot: 'dot-b' },
+            color:         { label: 'C — Color & Histogram', dot: 'dot-c' },
+            edge_geometry: { label: 'D — Edge & Geometry',   dot: 'dot-d' },
+            frequency:     { label: 'E — Frequency Domain',  dot: 'dot-e' },
+            file_metadata: { label: 'F — File / Metadata',   dot: 'dot-f' },
+            semantic:      { label: 'G — Semantic',           dot: 'dot-g' },
+            advanced:      { label: 'ADV — Advanced',         dot: 'dot-adv' },
+        };
+
+        const evidence = log.evidence || {};
+        let html = '';
+
+        // Summary row
+        html += `<div style="margin-bottom:18px">`;
+        if (log.comments) html += `<p style="color:var(--text-muted);font-size:0.88rem;margin-bottom:8px"><strong>Comments:</strong> ${escHtml(log.comments)}</p>`;
+        if (log.metadata) html += `<p style="color:var(--text-muted);font-size:0.85rem;margin-bottom:4px"><strong>Metadata:</strong> ${escHtml(log.metadata)}</p>`;
+        if (log.spectral) html += `<p style="color:var(--text-muted);font-size:0.85rem"><strong>Spectral:</strong> ${escHtml(log.spectral)}</p>`;
+        html += `</div>`;
+
+        // Evidence groups
+        const keys = Object.keys(evidence);
+        if (keys.length > 0) {
+            html += `<div class="evidence-groups">`;
+            for (const [groupKey, meta] of Object.entries(EV_GROUPS)) {
+                const data = evidence[groupKey];
+                if (!data || typeof data !== 'object') continue;
+                html += renderEvidenceGroup(meta.label, meta.dot, data);
+            }
+            // Any extra keys not in the predefined map
+            for (const key of keys) {
+                if (EV_GROUPS[key]) continue;
+                const data = evidence[key];
+                if (!data || typeof data !== 'object') continue;
+                html += renderEvidenceGroup(key, 'dot-adv', data);
+            }
+            html += `</div>`;
+        } else {
+            html += `<p style="color:var(--text-muted);text-align:center;padding:30px">No detailed evidence available for this entry.</p>`;
+        }
+
+        modalBody.innerHTML = html;
+        modalOvl.classList.add('active');
+    }
+
+    function renderEvidenceGroup(label, dotClass, data) {
+        const entries = flattenObject(data);
+        if (entries.length === 0) return '';
+
+        let items = entries.map(([k, v]) => {
+            const displayVal = typeof v === 'number' ? formatNum(v)
+                             : typeof v === 'boolean' ? (v ? '✓' : '✗')
+                             : String(v);
+            return `<div class="ev-item">
+                <span class="ev-key">${escHtml(k)}</span>
+                <span class="ev-val">${escHtml(displayVal)}</span>
+            </div>`;
+        }).join('');
+
+        return `<div class="ev-group">
+            <div class="ev-group-header">
+                <span class="dot ${dotClass}"></span>
+                ${escHtml(label)}
+                <span style="margin-left:auto;color:var(--text-muted);font-size:0.72rem">${entries.length} signals</span>
+            </div>
+            <div class="ev-items">${items}</div>
+        </div>`;
+    }
+
+    function flattenObject(obj, prefix) {
+        const result = [];
+        for (const [k, v] of Object.entries(obj)) {
+            const key = prefix ? `${prefix}.${k}` : k;
+            if (v !== null && typeof v === 'object' && !Array.isArray(v)) {
+                result.push(...flattenObject(v, key));
+            } else {
+                result.push([key, v]);
+            }
+        }
+        return result;
+    }
+
+    function formatNum(n) {
+        if (Number.isInteger(n)) return n.toString();
+        if (Math.abs(n) < 0.0001 && n !== 0) return n.toExponential(3);
+        return n.toFixed(4);
+    }
+
+    // ── Modal close ──────────────────────────────────────────────────────
+    modalClose.addEventListener('click', () => modalOvl.classList.remove('active'));
+    modalOvl.addEventListener('click', (e) => {
+        if (e.target === modalOvl) modalOvl.classList.remove('active');
+    });
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') modalOvl.classList.remove('active');
+    });
+
+})();
+</script>
+
+</body>
+</html>

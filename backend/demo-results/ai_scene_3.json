@@ -1,0 +1,7 @@
+{
+  "verdict": "AI SYNTHETIC",
+  "confidence": 65,
+  "comments": "Urban street crossing scene is a high-fidelity AI synthesis trained on urban documentary photography — motion blur on pedestrians is synthetically computed rather than resulting from real shutter speed limitations. License plate text on vehicles shows AI hallucination patterns: characters exist but are not valid regional plate formats under OCR analysis. Building signage in the mid-ground contains pseudo-text with plausible letterform layout but no readable words. Pedestrian shadow angles are inconsistent with each other and with the apparent solar position, indicating independent synthetic composition of scene elements.",
+  "spectral": "Vehicle reflection in car bodywork shows spectral discontinuity at the reflection boundary, indicating synthetic environment mapping rather than real-world optical reflection. Frequency analysis of pavement markings shows non-physical edge sharpness uniformity.",
+  "metadata": "Square format with no camera metadata; no GPS; no shutter speed data to validate motion blur; street signs contain no georeferencing text."
+}
